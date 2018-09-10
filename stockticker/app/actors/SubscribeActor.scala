@@ -15,7 +15,7 @@ class SubscribeActor(out: ActorRef) extends Actor {
 		case symbol: String =>
 			val system = akka.actor.ActorSystem("system")
 			import system.dispatcher
-			system.scheduler.schedule(0 seconds, 15 seconds, out, getStockInfo(symbol))
+			system.scheduler.schedule(0 seconds, 5 seconds, out, getStockInfo(symbol))
 		}
 		def getStockInfo(symbol: String) = {
 			// Somehow the following two lines only get called once
