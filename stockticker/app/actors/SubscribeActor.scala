@@ -15,14 +15,14 @@ class SubscribeActor(out: ActorRef) extends Actor {
 		case symbol: String =>
 			val system = akka.actor.ActorSystem("system")
 			import system.dispatcher
-			system.scheduler.schedule(0 seconds, 15 seconds, out, getStockInfo(symbol))
+			system.scheduler.schedule(0 seconds, 15 seconds)(out ! getStockInfo(symbol))
 		}
-		def getStockInfo(symbol: String) = {
-			// Somehow the following two lines only get called once
-			var stock = YahooFinance.get(symbol)
-			println(stock)
 
-			// But the line below is called on schedule
+		def getStockInfo(symbol: String) = {
+			var stock = YahooFinance.get(symbol)
 			Json.toJson(StockPrice(stock.getSymbol(), stock.getName(), stock.getQuote().getPrice())).toString()
+
+			// Uncomment the following line to test after market close
+			// Json.toJson(StockPrice(stock.getSymbol(), stock.getName(), scala.util.Random.nextDouble*100)).toString()
 		}
 	}
