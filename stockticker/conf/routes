@@ -11,4 +11,3 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 # Web Socket connections
 GET 	/subscribe 					controllers.HomeController.subscribe
-GET 	/hello/:symbol 				controllers.HomeController.hello(symbol)

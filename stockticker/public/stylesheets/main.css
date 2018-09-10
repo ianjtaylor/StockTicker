@@ -1,0 +1,9 @@
+tr {
+    background-color: white;
+    transition: background-color 1s;
+}
+
+.highlight {
+    background-color: goldenrod !important;
+    transition: background-color 1s;
+}

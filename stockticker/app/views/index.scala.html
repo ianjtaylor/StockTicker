@@ -1,10 +1,23 @@
 @main("Stock Ticker") {
+<div class="container">
   <h1>Welcome to Ian's Stock Ticker!</h1>
   
   <!--<button id="subscribe">Subscribe</button>-->
 <br>
 	<input type="text" id="stock" name="stock" placeholder="Enter a stock symbol" />
 	<button id="submit">Subscribe</button>
-
-  <div id="messages"></div>
+<br>
+<br>
+  <div id="watched-stocks">
+  	<table class="table table-striped">
+	  	<thead class="thead-dark">
+		  	<th>Stock Symbol</th>
+		  	<th>Company</th>
+		  	<th>Price</th>
+	  	</thead>
+	  	<tbody id="tbody">
+	  	</tbody>
+  	</table>
+  </div>
+</div>
 }
